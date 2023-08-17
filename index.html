@@ -21,8 +21,36 @@
             }
 
             h1 {
-                font-size: 32px;
+                font-size: 34px;
                 text-align: center;
+            }
+
+            th {
+                padding: 20px;
+                font-size: 20px;
+                line-height: 1.5;
+            }
+
+            td {
+                padding: 10px;
+                font-size: 20px;
+                line-height: 1.5;
+            }
+
+            button {
+                background: #fff;
+                border: 2px solid #333;
+                border-radius: 5px;
+                color: #333;
+                font-size: 16px;
+                font-weight: bold;
+                padding: 1rem;
+            }
+
+            button:hover {
+                background: #333;
+                border: 2px solid #333;
+                color: #fff;
             }
 
             .center {
@@ -32,11 +60,17 @@
                 width: 50%;
             }
 
+            .centertable {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
             p {
-                font-size: 20px;
+                font-size: 28px;
                 line-height: 1.5;
                 margin: 40px auto 0;
                 max-width: 640px;
+                font-weight: bold;
             }
 
             pre {
@@ -52,7 +86,7 @@
 
             label {
                 display: block;
-                font-size: 18px;
+                font-size: 20px;
                 font-weight: bold;
                 margin-bottom: 10px;
                 text-align: left;
@@ -91,10 +125,22 @@
             </form>
     
             <p>Tax Adjustments @ 16 Mill Increase:</p>
-            <p>Annual:</p>
-            $<span id="annual">0</span>
-            <p>Monthly:</p>
-            $<span id="monthly">0</span>
+            <table class="centertable">
+                <tr>
+                    <th>Annual:</th>
+                    <th>Monthly:</th>
+                </tr>
+                <tr>
+                    <td>
+                        $<span id="annual">0</span>
+                    </td>
+                    <td>
+                        $<span id="monthly">0</span>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <button onClick="window.location.reload();">Clear Calculator</button>
         </div>
         <script>
             $("input[data-type='currency']").on({
@@ -121,7 +167,7 @@
                 var input_val = input.val();
                 
                 // don't validate empty input
-                if (input_val === "") {  return; }
+                if (input_val === "") { input_val = ""; return; }
                 
                 // original length
                 var original_len = input_val.length;
