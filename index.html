@@ -163,6 +163,13 @@
                 }
             });
 
+            $(document).keypress(
+            function(event){
+                if (event.which == '13') {
+                    event.preventDefault();
+                }
+            });
+
 
             function formatNumber(n) {
                 // format number 1000000 to 1,234,567
